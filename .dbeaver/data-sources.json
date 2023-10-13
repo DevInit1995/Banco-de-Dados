@@ -1,0 +1,89 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-18b2905186d-cede7456977560": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "postgres",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
+				"home": "postgresql_client",
+				"type": "dev",
+				"properties": {
+					"connectTimeout": "20",
+					"loginTimeout": "20"
+				},
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		},
+		"postgres-jdbc-18b29ed5537-2e5e86ceb14bf95": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "treinamento",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "pato",
+				"port": "5432",
+				"database": "treinamento",
+				"url": "jdbc:postgresql://pato:5432/treinamento",
+				"home": "postgresql_client",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"virtual-models": {
+		"postgres-jdbc-18b29ed5537-2e5e86ceb14bf95": {
+			"treinamento": {
+				"public": {
+					":cliente4": {
+						"properties": {
+							"erd.diagram.state": {
+								"serialized": "<diagram version=\"1\" name=\"cliente4\" time=\"202310131549\"><entities><data-source id=\"postgres-jdbc-18b29ed5537-2e5e86ceb14bf95\"><entity id=\"1\" name=\"cliente4\" fq-name=\"public.cliente4\" order=\"0\" color-bg=\"255,128,64\" x=\"20\" y=\"20\"><path name=\"public\"/><path name=\"treinamento\"/></entity></data-source></entities><relations/></diagram>"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
