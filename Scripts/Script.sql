@@ -1,5 +1,5 @@
 -- tabela cliente
-create table cliente (
+create table cliente4 (
   idcliente integer not null,
   nome varchar(50) not null, 
   cpf char(11),
@@ -17,7 +17,7 @@ create table cliente (
   observacoes text,
   
   -- primary Key
-  constraint pk_cln_idcliente primary key (idcliente)
+  constraint pk_cln_idcliente4 primary key (idcliente)
 );
   
 select * from cliente4;
@@ -117,11 +117,44 @@ insert into cliente4 (idcliente, nome) values (8, 'Julia');
 -- deletar dados
 delete from cliente4 where idcliente = 8;
 
+--Exercicios update delete
+--1 nsira os dados abaixo na tabela de cliente4
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, municipio, uf)
+values (16, 'Maicon', '12349596421', '1234', '10/10/1965','F', 'Empresario', 'Florianopolis', 'PR');
+
+insert into cliente4 (idcliente, nome, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, municipio, uf)
+values (17, 'Getúlio', '4631', '10/10/1965','F', 'Estudante', 'Brasileira', 'Rua Central', '343', 'Apartamento', 'Centro', 'Florianopolis', 'PR');
 
 
+insert into cliente4 (idcliente, nome, genero, profissao, nacionalidade, numero, complemento)
+values (18, 'Sandra','M', 'Professor', 'Italiana', '343', 'Bloco A');
 
+select * from cliente4;
 
+--2 Altere os dados do cliente Maicon
+update cliente4 set cpf = '45390569432' where idcliente = 16;
 
+update cliente4 set genero = 'M' where idcliente = 16;
+
+update cliente4 set nacionalidade = 'Brasileira' where idcliente = 16;
+
+update cliente4 set uf = 'SC' where idcliente = 16;
+
+--3 Altere os dados do cliente Getúlio
+update cliente4 set data_nascimento = '01/04/1978' where idcliente = 17;
+
+update cliente4 set genero = 'M' where idcliente = 17;
+
+--4. Altere os dados da cliente Sandra
+update cliente4  set genero = 'F' where idcliente = 18;
+
+update cliente4 set profissao = 'Professora' where idcliente = 18;
+
+update cliente4 set numero = '123' where idcliente = 18;
+
+delete from cliente4 where idcliente = 16;
+
+delete from cliente4  where idcliente = 18;
 
 
 
