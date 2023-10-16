@@ -217,17 +217,28 @@ insert into bairro4 (idbairro, nome) values (3, 'São Pedro');
 
 insert into bairro4 (idbairro, nome) values (4, 'Santa Rosa');
 
-select * from bairro4;
+select * from cliente4;
 
+-- aula 20. Chaves estrangeiras 1
+-- exclui o campo idprofissão
+alter table cliente4 drop idprofissao;
 
+-- adiciona idprofissao do tipo integer
+alter table cliente4 add idprofissao integer;
 
+alter table cliente4 add constraint fk_cln_idprofissao foreign key (idprofissao) references profissao4 (idprofissao);
 
+update cliente4 set idprofissao = 1 where idcliente in (1, 9, 10, 12, 15, 17);
 
+update cliente4 set idprofissao = 2 where idcliente = 2;
 
+update cliente4 set idprofissao = 3 where idcliente = 3;
 
+update cliente4 set idprofissao = 4 where idcliente in (4, 5);
 
+update cliente4 set idprofissao = 5 where idcliente in (6, 7, 8, 13);
 
+select * from profissao4;
 
-
-
+delete from profissao4 where idprofissao = 10;
 
