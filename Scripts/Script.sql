@@ -102,8 +102,20 @@ select data_nascimento from cliente4 where data_nascimento between '01/01/2000' 
 --14
 select 'Nome: ' || nome || 'Logradouro: ' || logradouro || 'Número: ' || numero || 'Complemento' || complemento || 'Bairro' || bairro || 'Municipio' || municipio || 'UF' || uf from cliente4;
 
+--Comandos update e delete
+-- alterações e exclusões
+select * from cliente4;
 
+--atualização da tabela de cliente4, alterando o nome para teste
+-- onde o idcliente = 1
+update cliente4 set nome = 'Teste' where idcliente = 1;
 
+update cliente4 set nome = 'Adriano', genero = 'M', numero = '241' where idcliente = 4;
+
+-- insere novos dados
+insert into cliente4 (idcliente, nome) values (8, 'Julia');
+-- deletar dados
+delete from cliente4 where idcliente = 8;
 
 
 
