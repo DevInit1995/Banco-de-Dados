@@ -18,7 +18,7 @@ create table cliente (
   
   -- primary Key
   constraint pk_cln_idcliente primary key (idcliente)
-  );
+);
   
 select * from cliente4;
  
@@ -56,6 +56,62 @@ select nome from cliente4 order by nome asc;
 
 -- seleção ordenadas por nome em ordem decrescente
 select nome from cliente4 order by nome desc;
+
+select 'CPF: ' || cpf || ' RG: ' || rg as "CPF e RG" from cliente4;
+
+-------- exercicios consultas simples ---------
+--1 
+select nome, genero, profissao from cliente4 order by nome desc;
+
+--2
+select nome from cliente4 where nome like '%r%';
+
+--3 
+select nome from cliente4 where nome like 'C%';
+
+--4
+select nome from cliente4 where nome like '%a';
+
+--5
+select bairro from cliente4 where bairro like 'Centro';
+
+--6
+select complemento from cliente4 where complemento like 'A%';
+
+--7
+select genero from cliente4 where genero like 'F';
+
+--8
+select cpf from cliente4 where cpf is null;
+
+--9
+select nome, profissao from cliente4 order by profissao asc;
+
+--10
+select * from cliente4 where nacionalidade like 'Brasileira';
+
+--11
+select nome, numero from cliente4 where numero is not null;
+
+--12
+select nome, uf from cliente4 where uf like 'Santa Catarina';
+
+--13
+select data_nascimento from cliente4 where data_nascimento between '01/01/2000' and 01/01/2002;
+
+--14
+select 'Nome: ' || nome || 'Logradouro: ' || logradouro || 'Número: ' || numero || 'Complemento' || complemento || 'Bairro' || bairro || 'Municipio' || municipio || 'UF' || uf from cliente4;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
