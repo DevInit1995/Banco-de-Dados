@@ -156,6 +156,74 @@ delete from cliente4 where idcliente = 16;
 
 delete from cliente4  where idcliente = 18;
 
+--aula 19. criação de novas tabelas
+create table profissao4 (
+	idprofissao integer not null,
+	nome varchar(30) not null,
+	
+	constraint pk_prf_idprofissao4 primary key (idprofissao),
+	constraint un_prf_nome4 unique (nome)
+);
+
+insert into profissao4 (idprofissao, nome) values (1, 'Estudante');
+insert into profissao4 (idprofissao, nome) values (2, 'Engenheiro');
+insert into profissao4 (idprofissao, nome) values (3, 'Pedreiro');
+insert into profissao4 (idprofissao, nome) values (4, 'Jornalista');
+insert into profissao4 (idprofissao, nome) values (5, 'Professor');
+
+select * from nacionalidade4;
+
+create table nacionalidade4 (
+	idnacionalidade integer not null,
+	nome varchar(30) not null,
+	
+	constraint pk_ncn_idnacionalidade4 primary key (idnacionalidade),
+	constraint un_ncn_nome4 unique (nome)
+);
+
+insert into nacionalidade4 (idnacionalidade, nome) values (1, 'Brasileira');
+insert into nacionalidade4 (idnacionalidade, nome) values (2, 'Italiana');
+insert into nacionalidade4 (idnacionalidade, nome) values (3, 'Norte-americana');
+insert into nacionalidade4 (idnacionalidade, nome) values (4, 'Alemã');
+
+
+create table complemento4 (
+	idcomplemento integer not null,
+	nome varchar(30) not null,
+	
+	constraint pk_cpl_idcomplemento4 primary key (idcomplemento),
+	constraint un_cpl_nome4 unique (nome)
+);
+
+insert into complemento4 (idcomplemento, nome) values (1, 'Casa');
+
+insert into complemento4 (idcomplemento, nome) values (2, 'Apartamento');
+
+select * from complemento4;
+
+create table bairro4 (
+	idbairro integer not null, 
+	nome varchar(30) not null,
+	
+	constraint pk_brr_idbairro4 primary key (idbairro),
+	constraint un_brr_nome4 unique (nome)
+);
+
+insert into bairro4 (idbairro, nome) values (1, 'Cidade Nova');
+
+insert into bairro4 (idbairro, nome) values (2, 'Centro');
+
+insert into bairro4 (idbairro, nome) values (3, 'São Pedro');
+
+insert into bairro4 (idbairro, nome) values (4, 'Santa Rosa');
+
+select * from bairro4;
+
+
+
+
+
+
 
 
 
