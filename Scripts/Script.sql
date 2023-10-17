@@ -280,6 +280,72 @@ update cliente4 set idbairro = 3 where idcliente in (4,5);
 update cliente4 set idbairro = 4 where idcliente = 7;
 
 
+create table uf4 (
+	iduf integer not null,
+	nome varchar(30) not null,
+	siglas char(2) not null,
+	
+	constraint pk_ufd_idunidade_federecao4 primary key (iduf),
+	constraint un_ufd_nome4 unique (nome),
+	constraint un_ufd_sigla4 unique (siglas)
+);
+
+select * from uf4;
+
+insert into uf4 (iduf, nome, siglas) values (1, 'Santa Catarina', 'SC');
+insert into uf4 (iduf, nome, siglas) values (2, 'Paraná', 'PR');
+insert into uf4 (iduf, nome, siglas) values (3, 'São Paulo', 'SP');
+insert into uf4 (iduf, nome, siglas) values (4, 'Minas Gerais', 'MG');
+insert into uf4 (iduf, nome, siglas) values (5, 'Rio Grande do Sul', 'RS');
+insert into uf4 (iduf, nome, siglas) values (6, 'Rio de Janeiro', 'RJ');
+
+create table municipio4 (
+	idmunicipio integer not null,
+	nome varchar(30) not null,
+	iduf integer not null,
+	
+	constraint pk_mnc_idmunicipio4 primary key (idmunicipio),
+	constraint un_mnc_nome4 unique (nome),
+	constraint fk_mnc_iduf4 foreign key (iduf) references uf4 (iduf)
+);
+
+insert into municipio4 (idmunicipio, nome, iduf) values (1, 'Porto União', 1);
+insert into municipio4 (idmunicipio, nome, iduf) values (2, 'Canoinhas', 1);
+insert into municipio4 (idmunicipio, nome, iduf) values (3, 'Porto Vitória', 2);
+insert into municipio4 (idmunicipio, nome, iduf) values (4, 'General Carneiro', 2);
+insert into municipio4 (idmunicipio, nome, iduf) values (5, 'São Paulo', 3);
+insert into municipio4 (idmunicipio, nome, iduf) values (6, 'Rio de Janeiro', 6);
+insert into municipio4 (idmunicipio, nome, iduf) values (7, 'Uberlândia', 4);
+insert into municipio4 (idmunicipio, nome, iduf) values (8, 'Porto Alegre', 5);
+insert into municipio4 (idmunicipio, nome, iduf) values (9, 'União da Vitória', 2);
+
+select * from municipio4;
+
+select * from cliente4;
+alter table cliente4 drop municipio4;
+alter table cliente4 drop uf;
+alter table cliente4 add idmunicipio integer;
+alter table cliente4 add constraint fk_cliente_idmunicipio foreign key (idmunicipio) references municipio4 (idmunicipio);
+
+update cliente4 set idmunicipio = 1 where idcliente in (1,2,10,11);
+update cliente4 set idmunicipio = 2 where idcliente in (3, 12);
+update cliente4 set idmunicipio = 3 where idcliente = 4;
+update cliente4 set idmunicipio = 4 where idcliente in (5);
+update cliente4 set idmunicipio = 5 where idcliente in (6, 13);
+update cliente4 set idmunicipio = 6 where idcliente in (7);
+update cliente4 set idmunicipio = 7 where idcliente in (8);
+update cliente4 set idmunicipio = 8 where idcliente in (9);
+update cliente4 set idmunicipio = 9 where idcliente in (14, 15);
+
+select * from cliente4;
+
+
+
+
+
+
+
+
 
 
 
