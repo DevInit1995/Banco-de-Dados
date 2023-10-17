@@ -340,25 +340,95 @@ update cliente4 set idmunicipio = 9 where idcliente in (14, 15);
 select * from cliente4;
 
 
+--aula 23.Criação de outras tabelas 2
+create table fornecedor4 (
+	idFornecedor integer not null,
+	nome varchar(50) not null,
+	
+	constraint pk_fnd_idFornecedor primary key (idFornecedor),
+	--constraint un_fnd_nome unique (nome)
+);
 
+insert into fornecedor4 (idFornecedor, nome) values (1, 'Cap. Computadores');
+insert into fornecedor4 (idFornecedor, nome) values (2, 'AA. Computadores');
+insert into fornecedor4 (idFornecedor, nome) values (3, 'BB. Máquinas');
+insert into fornecedor4 (idFornecedor, nome) values (4, 'AA, Computadores');
+insert into fornecedor4 (idFornecedor, nome) values (5, 'AA Computadores');
+insert into fornecedor4 (idFornecedor, nome) values (6, 'BB Computadores');
+insert into fornecedor4 (idFornecedor, nome) values (7, 'Cap Computadores');
 
+select * from fornecedor4;
 
+create table vendedor4 (
+	idVendedor integer not null,
+	nome varchar(50) not null,
+	
+	constraint pk_vdr_idVendedor primary key (idVendedor),
+	constraint un_vdr_nome unique (nome)
+);
 
+insert into vendedor4 (idVendedor, nome) values (1, 'André');
+insert into vendedor4 (idVendedor, nome) values (2, 'Alison');
+insert into vendedor4 (idVendedor, nome) values (3, 'José');
+insert into vendedor4 (idVendedor, nome) values (4, 'Ailton');
+insert into vendedor4 (idVendedor, nome) values (5, 'Maria');
+insert into vendedor4 (idVendedor, nome) values (6, 'Suelem');
+insert into vendedor4 (idVendedor, nome) values (7, 'Aline');
+insert into vendedor4 (idVendedor, nome) values (8, 'Silvania');
 
+select * from vendedor4;
 
+create table transportadora4 (
+	idTransportadora integer not null,
+	idMunicipio integer,
+	nome varchar(50) not null,
+	logradouro varchar(50),
+	numero varchar(10),
+	constraint pk_tpr_idTransportadora primary key (idTransportadora),
+	constraint fk_tpr_idMunicipio foreign key (idMunicipio) references municipio4 (idMunicipio),
+	constraint un_tpr_nome unique (nome)
+);
 
+insert into transportadora4 (idTransportadora, idMunicipio, nome, logradouro, numero)
+values (1, 9,'BS. Transportes', 'Rua das Limas', 1);
 
+insert into transportadora4 (idTransportadora, idMunicipio, nome)
+values (2, 5,'União Transportes');
 
+select * from transportadora4;
 
+create table produto4 (
+	idProduto integer not null,
+	idFornecedor integer not null,
+	nome varchar(50) not null,
+	valor numeric(10,2) not null,
+	
+	constraint pk_pdo_idProduto primary key (idProduto),
+	constraint fk_pdo_idFornecedor foreign key (idFornecedor) references fornecedor4 (idFornecedor)
+);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (1, 1, 'Microcomputador', 800);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (2, 1, 'Monitor', 500);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (3, 3, 'Placa Mãe', 800);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (4, 4, 'HD', 150);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (5, 5, 'Placa de vídeo', 200);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (6, 6, 'Memória RAM', 100);
 
+insert into produto4 (idProduto, idfornecedor, nome, valor)
+values (7, 4, 'Gabinete', 35);
 
-
+select * from produto4;
 
 
 
