@@ -226,6 +226,7 @@ alter table cliente4 drop idprofissao;
 -- adiciona idprofissao do tipo integer
 alter table cliente4 add idprofissao integer;
 
+--adcionando chave estrangeira na tagbela cliente4
 alter table cliente4 add constraint fk_cln_idprofissao foreign key (idprofissao) references profissao4 (idprofissao);
 
 update cliente4 set idprofissao = 1 where idcliente in (1, 9, 10, 12, 15, 17);
@@ -240,5 +241,61 @@ update cliente4 set idprofissao = 5 where idcliente in (6, 7, 8, 13);
 
 select * from profissao4;
 
-delete from profissao4 where idprofissao = 10;
+alter table cliente4 drop nacionalidade;
+
+alter table cliente4 add idnacionalidade integer;
+
+--adicionando chave estrangeira
+alter table cliente4 add constraint fk_cln_idnacionalidade foreign key (idnacionalidade) references nacionalidade4 (idnacionalidade);
+
+--atualizando os ids na tabela cliente
+update cliente4 set idnacionalidade = 1 where idcliente in (1,2,3,4,6,10,11,14);
+update cliente4 set idnacionalidade = 2 where idcliente in (5, 7);
+update cliente4 set idnacionalidade = 3 where idcliente = 8;
+update cliente4 set idnacionalidade = 4 where idcliente in (9, 13);
+
+select * from cliente4;
+
+alter table cliente4 drop complemento;
+
+alter table cliente4 add idcomplemento integer;
+
+alter table cliente4 add constraint fk_cln_idcomplemento foreign key (idcomplemento) references complemento4 (idcomplemento);
+
+select * from complemento4;
+
+update cliente4 set idcomplemento = 1 where idcliente in (1,4,9,13);
+update cliente4 set idcomplemento = 2 where idcliente in (2,3,7);
+
+alter table cliente4 drop bairro;
+
+alter table cliente4 add idbairro integer;
+
+alter table cliente4 add constraint fk_cln_idbairro foreign key (idbairro) references bairro4 (idbairro);
+
+select * from bairro4;
+update cliente4 set idbairro = 1 where idcliente in (1,12,13);
+update cliente4 set idbairro = 2 where idcliente in (2,3,6,8,9);
+update cliente4 set idbairro = 3 where idcliente in (4,5);
+update cliente4 set idbairro = 4 where idcliente = 7;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
