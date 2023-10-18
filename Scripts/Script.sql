@@ -20,8 +20,17 @@ create table cliente4 (
   constraint pk_cln_idcliente4 primary key (idcliente)
 );
 
- select * from cliente4;
+update cliente4 set idmunicipio = 1 where idcliente in (1, 2, 10, 11);
+update cliente4 set idmunicipio = 2 where idcliente in (3, 12);
+update cliente4 set idmunicipio = 3 where idcliente = 4;
+update cliente4 set idmunicipio = 4 where idcliente in (5);
+update cliente4 set idmunicipio = 5 where idcliente in (6, 13);
+update cliente4 set idmunicipio = 6 where idcliente in (7);
+update cliente4 set idmunicipio = 7 where idcliente in (8);
+update cliente4 set idmunicipio = 8 where idcliente in (9);
+update cliente4 set idmunicipio = 9 where idcliente in (14, 15);
 
+select * from cliente4;
 
 insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, uf) 
 values (1, 'Manoel', '88828383821', '32323', '10/10/2001', 'M', 'Estudante', 'Brasileira', 'Rua Joaquim Nabuco', '23', 'Casa', 'Cidade Nova', 'SC');
@@ -624,25 +633,63 @@ values (15, 3, 1, 200);
 
 select * from pedido_produto4;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--Exercicios - consultas simples
+-- Aula 28
+--1. 
+select * from vendedor4 order by nome asc;
+--2.
+select valor from produto4 where valor > 200 order by valor asc;
+--3. O nome do produto, o preço e o preço reajustado em 10%, ordenado pelo nome do produto.
+select nome, valor, valor + (valor * 10) / 100 as Reajuste from produto4 order by nome;
+--4.
+select municipio from cliente4 where municipio like 'Rio Grande do Sul';
+--5.
+select data_Pedido from pedido4 where data_Pedido between '10/04/2008' and '25/04/2008' order by valor;
+--6.
+select valor from pedido4 where valor > 1000 and valor > 1500;
+--7.
+select valor from pedido4 where valor  between 100 and 500;
+--8.Os pedidos do vendedor André ordenado pelo valor em ordem decrescente. 
+select * from vendedor4;
+select * from pedido4 where idvendedor = 1 order by valor;
+--9.
+select * from cliente4 c ;
+select * from pedido4 where idcliente = 1 order by valor asc;
+--10.
+select * from cliente4 c ;
+select * from pedido4 where idcliente = 15 order by idvendedor = 1;
+--11.
+select * from transportadora4;
+select * from pedido4 where idtransportadora = 2; 
+--12.
+select * from pedido4 v;
+select * from pedido4 p where idvendedor = 5;
+--13.
+select * from cliente4 where idmunicipio = 1 or idmunicipio = 9;
+select * from cliente4;
+--14.
+select * from cliente4;
+select * from cliente4 where idmunicipio <> 1 and idmunicipio <> 9;
+--15.
+select * from cliente4 where logradouro is null;
+select * from cliente4;
+--16.
+select * from cliente4 where logradouro like 'Av%';
+--17.
+select * from vendedor4 where nome like 'S%';
+select * from vendedor4;
+--18.
+select * from vendedor4 where nome like '%a';
+--19.
+select * from vendedor4 where nome not like'A%';
+--20.
+select * from municipio4 where nome like 'P%' and iduf = 1;
+--21.
+select * from transportadora4 where logradouro is not null;
+--22. Os itens do pedido 01.
+select * from pedido_produto4 where idpedido = 1;
+--23. Os itens do pedido 06 ou do pedido 10.
+select * from pedido_produto4 where idpedido = 6 or idpedido = 10
 
 
 
