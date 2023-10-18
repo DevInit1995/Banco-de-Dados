@@ -636,7 +636,7 @@ select * from pedido_produto4;
 --Exercicios - consultas simples
 -- Aula 28
 --1. 
-select * from vendedor4 order by nome asc;
+select nome from vendedor4 order by nome asc;
 --2.
 select valor from produto4 where valor > 200 order by valor asc;
 --3. O nome do produto, o preço e o preço reajustado em 10%, ordenado pelo nome do produto.
@@ -689,11 +689,21 @@ select * from transportadora4 where logradouro is not null;
 --22. Os itens do pedido 01.
 select * from pedido_produto4 where idpedido = 1;
 --23. Os itens do pedido 06 ou do pedido 10.
-select * from pedido_produto4 where idpedido = 6 or idpedido = 10
+select * from pedido_produto4 where idpedido = 6 or idpedido = 10;
 
-
-
-
+--31. Funções agregadas
+select avg(valor) from pedido4; --a média aritmética 
+select count(idmunicipio) from municipio4; -- o total de linhas
+select count(*) from municipio4;
+select * from transportadora4;
+select count(logradouro) from transportadora4;
+select count(idtransportadora) from transportadora4;
+select count(idmunicipio) from municipio4 where iduf = 2;
+select max(valor) from pedido4; -- o valor máximo
+select min(valor), max(valor) from pedido4; -- o valor minimo e máximo
+select sum(valor) from pedido4; -- a soma total
+select idcliente, sum(valor) from pedido4 group by idcliente;
+select idcliente, sum(valor) from pedido4 group by idcliente having sum(valor) > 500;
 
 
 
