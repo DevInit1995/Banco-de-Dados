@@ -19,9 +19,58 @@ create table cliente4 (
   -- primary Key
   constraint pk_cln_idcliente4 primary key (idcliente)
 );
-  
-select * from cliente4;
- 
+
+ select * from cliente4;
+
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, uf) 
+values (1, 'Manoel', '88828383821', '32323', '10/10/2001', 'M', 'Estudante', 'Brasileira', 'Rua Joaquim Nabuco', '23', 'Casa', 'Cidade Nova', 'SC');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, uf) 
+values (2, 'Geraldo', '12343299291', '56565', '04/01/1987', 'M', 'Engenheiro', 'Brasileira', 'Rua das Limas', '200', 'Ap', 'Centro', 'SC');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, municipio, uf) 
+values (3, 'Carlos', '87732323227', '55463', '01/10/1967', 'M', 'Pedreiro', 'Brasileira', 'Rua das Laranjeiras', '300', 'Apart', 'Cto', 'Canoinhas', 'SC');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, municipio, uf) 
+values (4, 'Adriana', '1232122122', '98777', '10/09/1989', 'F', 'Jornalista', 'Brasileira', 'Rua das Limas', '240', 'Casa', 'São Pedro', 'Porto Vitória', 'SC');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, bairro, municipio, uf) 
+values (5, 'Amanda', '99982838828', '28382', '04/03/1991', 'F', 'Jorn', 'Italiana', 'Av. Central', '100', 'São Pedro', 'General Carneiro', 'PR');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, bairro, municipio, uf) 
+values (6, 'Ângelo', '99982828181', '12323', '01/01/2000', 'M', 'Professor', 'Brasileira', 'Av. Beira Mar', '300', 'Ctr', 'São Paulo', 'SP');
+
+insert into cliente4 (idcliente, nome, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, municipio, uf) 
+values (7, 'Anderson', 'M', 'Prof', 'Italiano', 'Av.Brasil', '100', 'Apartamento', 'Santa Rosa', 'Rio de Janeiro', 'RJ');
+
+insert into cliente4 (idcliente, nome, cpf, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, bairro, municipio, uf) 
+values (8, 'Camila', '9998282828', '10/10/2001', 'F', 'Professora', 'Norte Americana', 'Rua Central', '4333', 'Centro', 'Porto Alegre', 'RS');
+
+insert into cliente4 (idcliente, nome, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, municipio, uf) 
+values (9, 'Cristiano', 'M', 'Estudante', 'Alemã', 'Rua do Centro', '877', 'Casa', 'Centro', 'Porto Alegre', 'RS');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, logradouro, numero, complemento, bairro, municipio, uf) 
+values (10, 'Adriana', '1232122122', '98777', '10/09/1989', 'F', 'Jornalista', 'Brasileira', 'Rua das Limas', '240', 'Casa', 'São Pedro', 'Porto Vitória', 'SC');
+
+insert into cliente4 (idcliente, nome, genero, nacionalidade, municipio, uf) 
+values (11, 'Fernanda', 'F', 'Brasileira', 'Porto União', 'SC');
+
+insert into cliente4 (idcliente, nome, cpf, rg, data_nascimento, genero, profissao, nacionalidade, municipio, uf) 
+values (12, 'Gilmar', '88881818181', '888', '10/02/2000', 'M', 'Estud', 'Brasileira', 'Porto União', 'SC');
+
+insert into cliente4 (idcliente, nome, cpf, rg, genero, profissao, nacionalidade, municipio, uf) 
+values (13, 'Diego', '1010191919', '111939', 'M', 'Professor', 'Alemão', 'São Paulo', 'SP');
+
+insert into cliente4 (idcliente, nome, data_nascimento, genero, nacionalidade, municipio, uf) 
+values (14, 'Jeferson', '01/07/1983', 'M', 'Brasileira', 'União da Vitória', 'PR');
+
+insert into cliente4 (idcliente, nome, genero, profissao, municipio, uf) 
+values (15, 'Jessica', 'F', 'Estudante', 'União da Vitória', 'PR');
+
+insert into cliente4 (idcliente, nome, genero, profissao, municipio, uf) 
+values (16, 'Fabricio', 'M', 'Estudante', 'União da Vitória', 'PR');
+
 select nome, data_nascimento from cliente4;
 
 -- alterar o nome da coluna 
@@ -243,7 +292,7 @@ select * from profissao4;
 
 alter table cliente4 drop nacionalidade;
 
-alter table cliente4 add idnacionalidade integer;
+alter table cliente4 add naciolidade varchar;
 
 --adicionando chave estrangeira
 alter table cliente4 add constraint fk_cln_idnacionalidade foreign key (idnacionalidade) references nacionalidade4 (idnacionalidade);
@@ -429,6 +478,176 @@ insert into produto4 (idProduto, idfornecedor, nome, valor)
 values (7, 4, 'Gabinete', 35);
 
 select * from produto4;
+
+--Aula 26. Tabela de pedidos 1
+
+create table pedido4 (
+	idPedido integer not null,
+	idCliente integer not null,
+	idTransportadora integer,
+	idVendedor integer not null,
+	data_Pedido date not null,
+	valor numeric(10,2) not null,
+	
+	constraint pk_pdo_idPedido primary key (idPedido),
+	constraint fk_pdo_idCliente foreign key (idCliente) references cliente4 (idCliente),
+	constraint fk_pdo_idTransportadora foreign key (idTransportadora) references transportadora4 (idTransportadora),
+	constraint fk_pdo_idVendedor foreign key (idVendedor) references vendedor4 (idVendedor)
+);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (1, '01/04/2008', 1300, 1, 1, 1);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (2, '01/04/2008', 500, 1, 1, 1);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (3, '02/04/2008', 300, 11, 2, 5);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (4, '05/04/2008', 1000, 8, 1, 7);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (5, '01/04/2008', 500, 1, 1, 1);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (6, '06/04/2008', 1985, 16, 1, 6);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (7, '06/04/2008', 800, 16, 1, 7);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (8, '06/04/2008', 175, 3, null, 7);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (9, '07/04/2008', 1300, 12, null, 8);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (10, '10/04/2008', 200, 6, 1, 8);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (11, '15/04/2008', 300, 15, 2, 1);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (12, '20/04/2008', 500, 15, 2, 5);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (13, '20/04/2008', 350, 9, 1, 7);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (14, '23/04/2008', 300, 2, 1, 5);
+
+insert into pedido4 (idPedido, data_pedido, valor, idcliente, idtransportadora, idvendedor)
+values (15, '25/04/2008', 200, 11, null, 5);
+
+select * from pedido4;
+select * from cliente4;
+select * from transportadora4;
+select * from vendedor4;
+
+create table pedido_produto4(
+	idPedido integer not null,
+	idProduto integer not null,
+	quantidades integer not null,
+	valor_unitario numeric(10,2) not null,
+	
+	constraint pk_ppo_idPedido_produto primary key (idPedido),
+	constraint fk_ppo_idProduto_produto foreign key (idPedido) references produto4 (idProduto)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
