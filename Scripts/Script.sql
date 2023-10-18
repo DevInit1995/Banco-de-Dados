@@ -543,32 +543,86 @@ values (15, '25/04/2008', 200, 11, null, 5);
 select * from pedido4;
 select * from cliente4;
 select * from transportadora4;
-select * from vendedor4;
+select * from pedido_produto4 ;
 
-create table pedido_produto4(
+create table pedido_produto4 (
 	idPedido integer not null,
 	idProduto integer not null,
 	quantidades integer not null,
 	valor_unitario numeric(10,2) not null,
 	
-	constraint pk_ppo_idPedido_produto primary key (idPedido),
-	constraint fk_ppo_idProduto_produto foreign key (idPedido) references produto4 (idProduto)
+	constraint pk_ppo_idPedido_produto4 primary key (idPedido, idProduto),
+	constraint fk_ppo_idPedido4 foreign key (idPedido) references pedido4 (idPedido),
+	constraint fk_ppo_idProduto4 foreign key (idproduto) references produto4 (idProduto)
 );
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (1, 1 ,1, 800);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (1, 2 ,1, 500);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (3, 2, 1, 500);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (4, 1 ,1, 800);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (4, 3 ,1, 200);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (5, 3, 1, 200);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (6, 1, 2, 800);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (6, 7 , 1, 35);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (6, 5, 1, 200);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (6, 4, 1, 150);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (7, 1 ,1, 800);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (8, 7, 5, 35);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (9, 1, 1, 800);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (9, 2, 1, 500);
 
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (10, 5, 1, 200);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (11, 1, 1, 800);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (11, 6, 1, 100);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (12, 2, 1, 500);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (13, 3, 1, 200);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (13, 4, 1, 150);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (14, 6, 3, 100);
+
+insert into pedido_produto4 (idPedido, idProduto, quantidades, valor_unitario)
+values (15, 3, 1, 200);
+
+select * from pedido_produto4;
 
 
 
